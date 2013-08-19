@@ -1,11 +1,12 @@
-#
-
 package Array::RingBuffer;
 
+use 5.008_001;
 use strict;
-use 5.006;    # for attributes
+use warnings;
 use constant ARRAY => 0;
 use constant LIMIT => 1;
+
+# ABSTRACT: RingBuffer Array Object
 
 our $VERSION = '0.001';
 our $Verbose = 0;
@@ -148,6 +149,8 @@ sub message {
 
 __END__
 
+=encoding utf-8
+
 =head1 NAME
 
 Array::RingBuffer - RingBuffer Array Object
@@ -198,21 +201,7 @@ Array::RingBuffer - RingBuffer Array Object
 
 =head1 DESCRIPTION
 
-In other words, an array you create won't exceed. ...
-
-
-
-you can tie an array to having limited number of "slot"s.
-
-so the length of the array never exceeds the specified limit.
-
-
-# limit
-
-in this case,
-if it has already over 3 slots, 
-automatically truncates trailing fourth value and later.
-
+Array object with limited slots like ring buffer.
 
 =head1 METHODS
 
@@ -223,15 +212,11 @@ automatically truncates trailing fourth value and later.
  my $array = Array::RingBuffer->new( \@default );
  my $array = Array::RingBuffer->new( \@default, 10 );
 
- First value is default list as array reference, second value is limit length.
-
-
+ The first value is default list as array reference, the asecond is limit length.
 
  my $array = Array::RingBuffer->new( @default );
 
- If an naked array is set, the limit number is assumed by the length of it.
-
-
+ If a naked array is set, the limit number is assumed by the length of it.
 
 =item B<clear>
 
@@ -289,12 +274,21 @@ None.
 
 List::Cycle, List::Rotation, Array::Iterator
 
-=head1 LICENSE
+=head1 REPOSITORY
 
-This module is distributed under the same terms as perl itself.
+https://github.com/ryochin/p5-array-ringbuffer
 
 =head1 AUTHOR
 
-Ryo Okamoto <ryo at aquahill dot net>
+Ryo Okamoto E<lt>ryo@aquahill.netE<gt>
+
+=cut
+
+=head1 COPYRIGHT & LICENSE
+
+Copyright (c) Ryo Okamoto, all rights reserved.
+
+This program is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.
 
 =cut

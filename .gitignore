@@ -1,0 +1,8 @@
+/array-ringbuffer-*
+/.build
+/_build_params
+/Build
+!Build/
+!META.json
+!LICENSE
+/Array-RingBuffer-*
